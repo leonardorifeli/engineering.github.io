@@ -87,7 +87,7 @@ Os endpoints de produto costumam ser core da empresa e trabalham com uma taxa al
 
 **Captchas**
 
-Essa técnica permite um bypass total em qualquer tipo de validação com captchas, afinal, vocês vai fazer requests HTTP, sem a necessidade de um browser.
+Essa técnica permite um bypass total em qualquer tipo de validação com captchas, afinal você vai fazer apenas requests HTTP, sem a necessidade de um browser.
 
 <hr>
 
