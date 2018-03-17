@@ -1,9 +1,11 @@
 ---
 layout: post
 title: 'Web Scrapping - como funcionam e quais as estratégias utilizadas para coletarmos reviews de diversas fontes'
-date: '2018-03-16 9:00:00'
+date: '2018-03-19 9:00:00'
 categories: scrapping
 ---
+
+# Web Scrapping - como funcionam e quais as estratégias utilizadas para coletarmos reviews de diversas fontes
 
 ## Introducao
 
@@ -44,7 +46,7 @@ Sem dúvida, o melhor dos 3 caminhos. Integrações via APIs tendem a ser de rá
 
 **Contras:**
 
-- **Manutenção:** é normal você entrar nos mais diversos fórums de comunidade e encontrar issues com meses ( e muitas vezes anos ) de idade, sem resolução;
+- **Manutenção:** é normal entrar nos mais diversos fórums de comunidade e encontrar issues com meses ( e muitas vezes anos ) de idade, sem resolução;
 - **Disponibilidade:** se o sistema da empresa fica indisponível, não tem nada que possa ser feito do nosso lado, a não ser esperar ele voltar;
 - **Custo:** muitas delas são pagas e caras. 
 
@@ -70,7 +72,7 @@ O custo para manter um scrapper é alto, a manutenção é inevitável e depende
 - **Segurança:** baixa
 - **Custo de manutenção:** alto
 - **Performance:** baixa
-
+ 
 ### Engenharia reversa
 
 *"A persistência é o melhor caminho para o êxito" - Charles Chaplin*
@@ -79,7 +81,7 @@ Três pontos chaves nos fizeram enxergar o poder de utilizar da engenharia rever
 
 **Performance**
 
-Endpoints de produto te permitem usufruir de todo um trabalho de otimizações feitos para garantir performance aos usuários daquele sistema. A utilização desses endpoints faz com você usufrua dessas melhorias na sua integração, permitindo atingir níveis interessantes de performance. Aqui na reviewr, temos uma plataforma que conta com 2 robôs diferentes de coleta e a API de produto (não oficial) é mais rápida e traz um volume de dados muito maior do que a API oficial.
+Endpoints de produto te permitem usufruir de todo um trabalho de otimizações feitos para garantir performance aos usuários daquele sistema. A utilização desses endpoints faz com seu sistema usufrua dessas melhorias na sua integração, permitindo atingir níveis interessantes de performance. Aqui na reviewr, temos uma plataforma que conta com 2 robôs diferentes de coleta e a API de produto (não oficial) é mais rápida e traz um volume de dados muito maior do que a API oficial.
 
 **Estabilidade e Disponibilidade**
 
@@ -87,13 +89,13 @@ Os endpoints de produto costumam ser core da empresa e trabalham com uma taxa al
 
 **Captchas**
 
-Essa técnica permite um bypass total em qualquer tipo de validação com captchas, afinal você vai fazer apenas requests HTTP, sem a necessidade de um browser.
+Essa técnica permite um bypass total em qualquer tipo de validação com captchas, afinal, seu sistema vai fazer requests HTTP, sem a necessidade de um browser.
 
 <hr>
 
-Apesar das vantagens, esse é o caminho mais doloroso de todos. Encontrar o endpoint que você precisa utilizar é moleza, a dificuldade está em montar essa request igual a original, em muitos casos, precisando utilizar tokens gerados durante a navegação no sistema. 
+Apesar das vantagens, esse é o caminho mais doloroso de todos. Encontrar o endpoint alvo para ser utilizado é moleza, a dificuldade está em montar essa request igual a original, em muitos casos, precisando utilizar tokens gerados durante a navegação no sistema. 
 
-Mas não desanime, uma vez que você consegue mapear e automatizar a criação dos tokens de segurança (que não costumam ser alterados com muita frequência), é só correr e sair para o abraço. No final, o esforço vale muito a pena e os resultados vão te surpreender.
+Mas não desanime, uma vez mapeada e automatizada a criação dos tokens de segurança (que não costumam ser alterados com muita frequência), é só correr e sair para o abraço. No final, o esforço vale muito a pena e os resultados vão te surpreender.
 
 **Percepções gerais**
 
