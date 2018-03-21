@@ -119,5 +119,6 @@ Com muito estudo e persistência, é possível criar extratores de dados muito e
 
 Muito obrigado pela leitura e se tiver alguma dúvida, não deixe de nos perguntar.
 
-Acompanhe a reviewr no Facebook: https://www.facebook.com/reviewrme
-Acompanhe a reviewr no Linkedin: https://www.linkedin.com/company/reviewr.me/
+Acompanhe a reviewr no Facebook: [https://www.facebook.com/reviewrme](https://www.facebook.com/reviewrme)
+
+Acompanhe a reviewr no Linkedin: [https://www.linkedin.com/company/reviewr.me/](https://www.linkedin.com/company/reviewr.me/)
