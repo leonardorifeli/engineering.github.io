@@ -94,7 +94,7 @@ Apesar das vantagens, esse costuma ser o caminho mais difícil. Encontrar o endp
 
 Mas não desanime, uma vez mapeada e automatizada a criação dos tokens de segurança (que não costumam ser alterados com muita frequência), metade do caminho vai ter sido percorrido.
 
-O próximo passo é *parseamento* de dados. Muitas dessas APIs respondem HTMLs renderizados do lado do servidor, que acabam retornando muita *sujeira* e podem ser muito extensos. Utilizamos o ```cherrio``` para nos ajudar com essa última etapa, possibilitando o uso de seletores CSS para fazer a busca dos elementos.
+O próximo passo é *parseamento* de dados. Muitas dessas APIs respondem HTMLs renderizados do lado do servidor, que acabam retornando muita *sujeira* e podem ser muito extensos. Utilizamos o ```cheerio``` para nos ajudar com essa última etapa, possibilitando o uso de seletores CSS para fazer a busca dos elementos.
 
 
 **Percepções gerais**
