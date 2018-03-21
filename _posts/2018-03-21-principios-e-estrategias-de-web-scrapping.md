@@ -3,6 +3,8 @@ layout: post
 title: 'Princípios e estratégias de Web Scrapping'
 date: '2018-03-21 9:00:00'
 categories: scrapping
+comments: true
+author: marcelinhov2
 ---
 
 Coletar dados nem sempre é uma tarefa simples. Ainda que hoje em dia a grande maioria das empresas "new world" optem por criar APIs para facilitar a integração com o seu sistema, existem muitas outras que não querem disponibilizar os seus dados e ainda as que simplesmente não entraram no século XXI. Casos como o do Banco do Brasil, que recentemente disponibilizou sua [API de serviços bancários](https://developers.bb.com.br/pt-br/), comprovam que as grandes corporações estão correndo atrás do tempo perdido e o futuro é muito promissor.
