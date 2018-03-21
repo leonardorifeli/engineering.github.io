@@ -5,30 +5,22 @@ date: '2018-03-19 9:00:00'
 categories: scrapping
 ---
 
-# Web Scrapping - como funcionam e quais as estratégias utilizadas para coletarmos reviews de diversas fontes
+# Princípios e estratégias de Web Scrapping
 
 ## Introducao
 
 Coletar dados nem sempre é uma tarefa simples. Ainda que hoje em dia a grande maioria das empresas "new world" optem por criar APIs para facilitar a integração com o seu sistema, existem muitas outras que não querem disponibilizar os seus dados e ainda as que simplesmente não entraram no século XXI. Casos como o do Banco do Brasil, que recentemente disponibilizou sua [API de serviços bancários](https://developers.bb.com.br/pt-br/), comprovam que as grandes corporações estão correndo atrás do tempo perdido e o futuro é muito promissor.
 
-O objetivo desse post é apresentar um poucos dos nossos coletores e estratégias para extrações de dados.
-
-## Coletores
-
-Nossos coletores são desenvolvidos em Javascript e estamos migrando todos para a arquitetura de Functions. Isso vai nos permitir escalar ao infinito com um custo mais baixo do que os servidores comuns.
-
-Cada robô conta com um MongoDb exclusivo onde ficam armazenados os raw datas e as coletas podem ser feitas de maneira instantânea ou via agendamento. Todos os reviews coletados sobem para uma fila, para garantir sua inserção no Jarvis, nosso Data Warehouse ( Amazon Redshift ).
-
-![diagrama_coleta](https://user-images.githubusercontent.com/232648/37443047-6ee29bfa-27e8-11e8-8590-c02d86d34d30.png)
+O objetivo desse post é apresentar um pouco das nossas estratégias para extrações de dados e coletores.
 
 
 ## Estratégias
 
-O principal pré-requisito para o desenvolvimento de um coletor, é um estudo onde são levados em conta 3 possíveis caminhos a seguir para conseguir concretizar a integração: **APIs**, **browser scrapping** e **engenharia reversa**.
+O principal pré-requisito para o desenvolvimento de um coletor aqui na reviewr, é um estudo onde são levados em conta 3 possíveis caminhos a seguir para conseguir concretizar a integração: **APIs**, **browser scrapping** e **engenharia reversa**.
 
 ### APIs
 
-Sem dúvida, o melhor dos 3 caminhos. Integrações via APIs tendem a ser de rápido desenvolvimento e costumam contar com um serviço de suporte, caso seja necessário. Em muitas empresas as APIs são tratadas como produtos e costumam receber muito investimento para que seus sistemas estejam com os endpoints sempre disponíveis, estáveis e rápidos para seus clientes.
+Sem dúvida, o melhor dos 3 caminhos. Integrações via APIs tendem a ser de rápido desenvolvimento e costumam contar com um serviço de suporte, caso necessário. Em muitas empresas as APIs são tratadas como produtos e costumam receber muito investimento para que seus sistemas estejam com os endpoints sempre disponíveis, estáveis e rápidos para seus clientes.
 
 **Percepções gerais**
 
@@ -52,7 +44,7 @@ Sem dúvida, o melhor dos 3 caminhos. Integrações via APIs tendem a ser de rá
 
 ### Browser Scrapping
 
-Mesmo sendo uma técnica bem antiga, muitas empresas contam com scrappers para automatizar a coleta de dados em sistemas que não disponibilizam APIs. Ao seguir por esse caminho, tenha a certeza de que existem algumas dificuldades que costumam tirar o sono de muita gente:
+Mesmo sendo uma técnica bem antiga, muitas empresas contam com *scrappers* para automatizar a coleta de dados em sistemas que não disponibilizam APIs. Ao seguir por esse caminho, tenha a certeza de que existem algumas dificuldades que costumam tirar o sono de muita gente:
 
 - Captchas
 - AB Tests
@@ -77,11 +69,15 @@ O custo para manter um scrapper é alto, a manutenção é inevitável e depende
 
 *"A persistência é o melhor caminho para o êxito" - Charles Chaplin*
 
+A principal diferença quando comparado com o **browser scrapping**, é que não precisamos de um browser. O objetivo é descobrir o endpoint resposável por retornar a informação necessária, e para isso, basta navegar até a URL alvo ( com o Developer Tools aberto ), abrir a aba Network, filtrar por XHR e descobrir a chamada. 
+
+**Obs.:** *Se não achar o que precisa em nenhuma chamada, o dado pode ter sido retornado na requisição inicial.*
+
 Três pontos chaves nos fizeram enxergar o poder de utilizar da engenharia reversa nos nossos coletores:
 
 **Performance**
 
-Endpoints de produto te permitem usufruir de todo um trabalho de otimizações feitos para garantir performance aos usuários daquele sistema. A utilização desses endpoints faz com seu sistema usufrua dessas melhorias na sua integração, permitindo atingir níveis interessantes de performance. Aqui na reviewr, temos uma plataforma que conta com 2 robôs diferentes de coleta e a API de produto (não oficial) é mais rápida e traz um volume de dados muito maior do que a API oficial.
+Te permitem usufruir de todo um trabalho de otimizações feitos para garantir uma boa experiência aos usuários, permitindo atingir níveis interessantes de performance. Temos uma plataforma que conta com 2 robôs diferentes de coleta e a API de produto (não oficial) é mais rápida e traz um volume de dados muito maior do que a API oficial.
 
 **Estabilidade e Disponibilidade**
 
@@ -89,13 +85,16 @@ Os endpoints de produto costumam ser core da empresa e trabalham com uma taxa al
 
 **Captchas**
 
-Essa técnica permite um bypass total em qualquer tipo de validação com captchas, afinal, seu sistema vai fazer requests HTTP, sem a necessidade de um browser.
+Essa técnica permite um bypass total em qualquer tipo de validação com captchas, afinal, seu sistema vai fazer apenas requests HTTP.
 
 <hr>
 
-Apesar das vantagens, esse é o caminho mais doloroso de todos. Encontrar o endpoint alvo para ser utilizado é moleza, a dificuldade está em montar essa request igual a original, em muitos casos, precisando utilizar tokens gerados durante a navegação no sistema. 
+Apesar das vantagens, esse costuma ser o caminho mais difícil. Encontrar o endpoint alvo para ser utilizado é moleza, a dificuldade é que em muitos casos eles contam com algum tipo de segurança e necessitam de tokens que são gerados durante a navegação.
 
-Mas não desanime, uma vez mapeada e automatizada a criação dos tokens de segurança (que não costumam ser alterados com muita frequência), é só correr e sair para o abraço. No final, o esforço vale muito a pena e os resultados vão te surpreender.
+Mas não desanime, uma vez mapeada e automatizada a criação dos tokens de segurança (que não costumam ser alterados com muita frequência), metade do caminho vai ter sido percorrido.
+
+O próximo passo é *parseamento* de dados. Muitas dessas APIs respondem HTMLs renderizados do lado do servidor, que acabam retornando muita *sujeira* e podem ser muito extensos. Utilizamos o ```cherrio``` para nos ajudar com essa última etapa, possibilitando o uso de seletores CSS para fazer a busca dos elementos.
+
 
 **Percepções gerais**
 
@@ -103,7 +102,17 @@ Mas não desanime, uma vez mapeada e automatizada a criação dos tokens de segu
 - **Estabilidade:** média
 - **Segurança:** média
 - **Custo de manutenção:** médio
-- **Performance:** alta
+- **Performance:** alta 
+
+<hr>
+
+## Nossos coletores
+
+São desenvolvidos em Javascript e estamos migrando todos para a arquitetura de *functions*. Isso vai nos permitir escalar ao infinito com um custo mais baixo.
+
+Cada robô conta com um MongoDb exclusivo onde ficam armazenados nossos *raw datas* e as coletas podem ser feitas de maneira instantânea ou via agendamento. Todos os reviews coletados sobem para uma fila, para garantir sua inserção no Jarvis, nosso Data Warehouse ( Amazon Redshift ).
+
+![diagrama_coleta](https://user-images.githubusercontent.com/232648/37443047-6ee29bfa-27e8-11e8-8590-c02d86d34d30.png)
 
 ## Conclusão
 
