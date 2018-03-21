@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Web Scrapping - como funcionam e quais as estratégias utilizadas para coletarmos reviews de diversas fontes'
+title: 'Princípios e estratégias de Web Scrapping'
 date: '2018-03-21 9:00:00'
 categories: scrapping
 ---
