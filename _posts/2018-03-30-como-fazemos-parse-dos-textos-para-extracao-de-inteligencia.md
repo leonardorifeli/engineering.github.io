@@ -94,9 +94,9 @@ Já o **Wolfram-Alpha** é feito em Go (foi nosso primeiro microservice em Go). 
 
 # Como fazemos o parse
 
-Como visto na imagem sobre nossa arquitetura de dados. Até então, o **Kowalski** efetua uma request para um endpoint **XYZ** do **Wolfram-Alpha**, passando algunas informações para a extracão, tais como: período de data (data `de` e `até`), o cliente, o canal (Todos, Facebook, Google, etc), etc.
+O **Kowalski** efetua uma request para um endpoint **XYZ** do **Wolfram-Alpha**, passando algunas informações para a extracão, tais como: `período de data` (data `de` e `até`), o `cliente`, o `canal` (Todos, Facebook, Google, etc), etc.
 
-Com base nessas informações, fazemos as extrações dos reviews em nosso data warehouse. Como já temos os termos pré-processados e salvos em json (como o exemplo abaixo) precisamos reprocessa-los junto ao volume todo.
+Com base nessas informações, fazemos as extrações dos reviews em nosso `data warehouse`. Como já temos os termos pré-processados e salvos em json (como o exemplo abaixo) precisamos reprocessa-los junto ao volume todo.
 
 **Exemplo do json de termos pré-processados**
 
@@ -113,9 +113,12 @@ Com base nessas informações, fazemos as extrações dos reviews em nosso data 
    "caro":1
 }
 ```
-Fazemos parse de todos os termos de cada review e vamos populando um `array` com os termos, incrementando a cada ocorrência. Posteriormente a isso, fazemos a orderação de ocorrências de modo decrescente. Assim, temos uma lista única de todos os termos mais citados em um volume de reviews. Claro, no parse dos termos, analisamos novamente a blacklist para disconsiderar termos não necessários, que foram processados após uma possível atualização do nosso blacklist (fica pesado refazermos os termos que já foram pré-processados).
 
-Aí você questiona: qual a performance para analisar tudo isso? Chega mais no próximo tópico.
+Fazemos parse de todos os termos de cada review e populamos um `array`, incrementando a as ocorrências. Posteriormente a isso, fazemos a orderação de ocorrências de modo decrescente. Assim, temos uma lista única de todos os termos mais citados em um volume de reviews. Claro, no parse dos termos, analisamos novamente a blacklist para disconsiderar termos não necessários, que foram processados após uma possível atualização do nosso blacklist.
+
+E qual a performance para analisar tudo isso? Chega mais no próximo tópico.
+
+`P.S.:` Estamos evoluindo para análise de sinônimos, pluralidade, e alguns indicadores apra entreguarmos ainda mais inteligência.
 
 # Performance
 
