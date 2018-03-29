@@ -61,7 +61,7 @@ Para descrevermos a arquitetura que utilizamos para resolver este desafio, irei 
 
 ### Coletores
 
-A arquitetura da nossa plataforma é divida em duas partes principais, e uma delas chamamores de coletores. Nosso CTO (Marcelo Andrade) fala um pouco dos coletores neste post; [Princípios e estratégias de Web Scrapping](http://engineering.reviewr.tech/scrapping/2018/03/21/principios-e-estrategias-de-web-scrapping.html).
+A arquitetura da nossa plataforma é dividida em duas partes principais, e uma delas chamamos de coletores. Nosso CTO (Marcelo Andrade) fala um pouco dos coletores neste post: [Princípios e estratégias de Web Scrapping](http://engineering.reviewr.tech/scrapping/2018/03/21/principios-e-estrategias-de-web-scrapping.html).
 
 ![image](https://user-images.githubusercontent.com/6767689/38068537-198df3ec-32e8-11e8-8be0-645effbc1a59.png)
 
