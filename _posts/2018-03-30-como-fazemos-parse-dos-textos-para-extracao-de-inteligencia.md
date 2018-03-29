@@ -122,14 +122,13 @@ E qual a performance para analisar tudo isso? Chega mais no próximo tópico.
 
 # Performance
 
-Neste tópico, trago alguns indicadores de performance atingidos no decorrer do desenvolvimento. Claro, em cenários não ideiais; como a aplicação em desktop, em um Macbook PRO e o banco na AWS (Vírginia).
+Neste tópico, trago alguns indicadores de performance atingidos no decorrer do desenvolvimento. Claro, em cenários não ideiais como: rodando a aplicação em ambiente local e o banco na AWS (na Virgínia).
 
-Indicador sem cache, com parse de `~6k reviews`:
+**Indicador sem cache, com parse de `~6k reviews`:**
 
 ![image](https://user-images.githubusercontent.com/6767689/38069427-9e3b2ea8-32ec-11e8-94bf-bcc73079c992.png)
 
-
-Indicador com cache, com parse de `~5k reviews`:
+**Indicador com cache, com parse de `~5k reviews`:**
 
 ![image](https://user-images.githubusercontent.com/6767689/38069405-7babc47e-32ec-11e8-8f53-46f26bb92758.png)
 
@@ -174,7 +173,7 @@ Exemplo de resultado de uma requisitação:
 
 # Conclusão
 
-Tivemos um longe desafio pela frente. No inicio fizemos a nossa POC com NodeJS e Go. Obtivemos excelente indicadores de performance com nosso algoritmo totalmente rodando com Golang.
+Tivemos um longe desafio pela frente. No inicio fizemos a nossa POC com `NodeJS` e `Go`. Obtivemos melhores e excelente indicadores de performance com nosso algoritmo rodando com Go.
 
 Hoje este feature é muito utilizada em nossa plataforme e os indicadores continuam muito bem. Com base nesse microservice, escrevemos outros com Golang e pretendemos tornar uma stack default em nosso back-end.
 
