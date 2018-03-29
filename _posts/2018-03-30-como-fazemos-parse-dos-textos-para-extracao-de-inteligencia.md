@@ -47,7 +47,6 @@ Sobre isso, nossa COO (Cecília Brandão) escreveu um post sobre o assunto **[co
 
 Este foi um dos nossos grandes desafios. Salvar dados classificados, fazer parse de um grande volume de dados e entregar inteligência.
 
-
 # Nossa arquitetura
 
 Nossa arquitetura é com base em microservices e seguimos (sempre que possível) os pontos abaixo:
@@ -71,27 +70,27 @@ Neste processo, já fazemos um pré-processamento dos textos, extraindo as palav
 
 ### Processadores
 
-Os processadores são microservices pequenos, onde externalizamos endpoints (uma API), tanto para relatórios quanto para extração de inteligência (um relatório é a junção de vários indicadores, dos quais este não tem a responsabilidade de extrair, solicitando para outro microservice efetuar essa extração).
+Os processadores são microservices pequenos, onde externalizam endpoints (uma API), tanto para relatórios quanto para extração de inteligência (um relatório é a junção de vários indicadores, dos quais este não tem a responsabilidade de extrair, solicitando para outro microservice efetuar a extração).
 
-Para prosseguirmos, analisaremos a seguinte imagem (nossa arquitetura de dados):
+Para prosseguirmos, analisaremos a seguinte imagem (`nossa arquitetura de dados`):
 
 ![image](https://user-images.githubusercontent.com/6767689/38068754-3484ea06-32e9-11e8-8d10-d58ac97ebd58.png)
 
-É visível que nosso data warehouse é acessado por alguns microservices. Neste post, falaremos sobre o **Kowalski** e o **Wolfram-Alpha**, responsáveis por relatórios, pelo parse de texto para extração dos termos mais citados.
+Nosso data warehouse é acessado por alguns microservices. Neste post, falaremos sobre o **Kowalski** e o **Wolfram-Alpha**, responsáveis por relatórios e pelo parse de texto para extração dos termos mais citados.
 
 # Nossa stack
 
 Para o cenário atual, nossa stack é dividida em:
 
-- Banco NoSQL para os reviews em raw-data;
-- Banco Postgres ([Redshift](https://aws.amazon.com/pt/redshift/));
-- NodeJS (no Kowalski) e Golang (no Wolfram-alpha) microservice.
+- Banco `NoSQL` (neste caso `MongoDB`) para os reviews em `raw-data `;
+- Banco `Postgres` ([Redshift](https://aws.amazon.com/pt/redshift/));
+- NodeJS (`Kowalski`) e Golang (`Wolfram-alpha`) microservice.
 
 # Nossos microservices
 
-Bom, como visto, temos dois microservices principais para o processo dos relatórios e extração de inteligência. O microservice **Kowalski** é responsável pela entrega dos relatórios e apenas por alguns indicadores, este é feito totalmente em NodeJS.
+Temos dois microservices principais para o processo dos relatórios e extração de inteligência. O microservice **Kowalski** é responsável pela entrega dos relatórios e alguns indicadores, este é feito totalmente em `NodeJS`.
 
-Já o **Wolfram-Alpha** é feito em Go (foi nosso primeiro microservice em Go). É responsável por processar um volume **X** de reviews para a extração, agregação e ordenação dos termos. Aqui utilizamos um processo de **MapReduce**. Golang possui um grande recurso para programação paralela, por isso a escolhemos para esta tarefa.
+Já o **Wolfram-Alpha** é feito em Go (foi nosso primeiro microservice em Go). É responsável por processar um volume **XY** de reviews para a extração, agregação e ordenação dos termos. Aqui utilizamos um processo de **MapReduce**. Golang possui um grande recurso para programação paralela, por isso a escolhemos para esta tarefa.
 
 # Como fazemos o parse
 
