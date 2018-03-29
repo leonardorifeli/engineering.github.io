@@ -7,15 +7,6 @@ comments: true
 author: leonardorifeli
 ---
 
----
-layout: post
-title: 'Como fazemos parse dos textos para extração de inteligência?'
-date: '2018-03-30 9:00:00'
-categories: bigdata
-comments: true
-author: leonardorifeli
----
-
 Em programação de software o termo **parse de texto** é ainda sombrio, ainda mais em demasiado volume de texto.
 
 Este é o primeiro post sobre o assunto aqui no blog. Falaremos sobre um desafio que enfrantamos: parse dos textos dos reviews e extração de inteligência. Então, vamos lá.
