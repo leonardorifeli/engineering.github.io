@@ -23,7 +23,7 @@ Para não termos problemas com as expectativas é muito importante deixarmos cla
 - Introdução;
 - Nossa arquitetura;
 - Nossa stack;
-- Como fizemos;
+- Como fazemos o parse;
 - Performance;
 - Conclusão.
 
@@ -149,10 +149,6 @@ Exemplo de resultado de uma requisitação:
          "total":565
       },
       {  
-         "name":"bom",
-         "total":537
-      },
-      {  
          "name":"alimentação",
          "total":448
       },
@@ -161,41 +157,13 @@ Exemplo de resultado de uma requisitação:
          "total":398
       },
       {  
-         "name":"ótimo",
-         "total":284
-      },
-      {  
-         "name":"lugar",
-         "total":269
-      },
-      {  
          "name":"cinema",
          "total":251
       },
       {  
-         "name":"opções",
-         "total":250
-      },
-      {  
-         "name":"grande",
-         "total":214
-      },
-      {  
          "name":"excelente",
          "total":193
-      },
-      {  
-         "name":"melhor",
-         "total":190
-      },
-      {  
-         "name":"compras",
-         "total":163
-      },
-      {  
-         "name":"caro",
-         "total":160
-      },
+      }
    ]
 }
 ```
