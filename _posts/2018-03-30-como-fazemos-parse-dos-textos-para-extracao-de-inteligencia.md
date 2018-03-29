@@ -65,9 +65,9 @@ A arquitetura da nossa plataforma é dividida em duas partes principais, e uma d
 
 ![image](https://user-images.githubusercontent.com/6767689/38068537-198df3ec-32e8-11e8-8be0-645effbc1a59.png)
 
-Onde é feita toda a coleta dos reviews, em seguida são inseridos em uma base MongoDB e em nosso Data Warehouse (Amazon Redshift, um postgres).
+Os nossos coletores coletam os reviews e em seguida são inseridos em uma base `MongoDB` e em nosso `Data Warehouse` (Amazon Redshift, um postgres).
 
-Neste processo, já fazemos o pré-processamento dos textos, extraindo as palavras e claro, desconsiderando as palavras não necessárias atráves de uma blacklist.
+Neste processo, já fazemos um pré-processamento dos textos, extraindo as palavras e claro, desconsiderando as palavras não necessárias atráves de uma blacklist.
 
 ### Processadores
 
