@@ -188,6 +188,6 @@ Se você possui algum case como este, fique a vontade para compartilhar conosco!
 
 Me acompanhe em: [github.com/leonardorifeli](https://github.com/leonardorifeli) e [leonardo.rifeli.tech](https://leonardo.rifeli.tech)
 
-Acompanhe a reviewr no Facebook: [https://www.facebook.com/reviewrme](https://www.facebook.com/reviewrme)
+Acompanhe a reviewr no Facebook: [facebook.com/reviewrme](https://www.facebook.com/reviewrme)
 
-Acompanhe a reviewr no Linkedin: [https://www.linkedin.com/company/reviewr.me/](https://www.linkedin.com/company/reviewr.me/)
+Acompanhe a reviewr no Linkedin: [linkedin.com/company/reviewr.me/](https://www.linkedin.com/company/reviewr.me/)
