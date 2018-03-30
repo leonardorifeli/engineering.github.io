@@ -81,7 +81,7 @@ Para prosseguirmos, analisaremos a seguinte imagem (nossa arquitetura de dados):
 
 ![image](https://user-images.githubusercontent.com/6767689/38068754-3484ea06-32e9-11e8-8d10-d58ac97ebd58.png)
 
-Nosso Data Warehouse é acessado por vários microserviços e falarei um pouco abaixo sobre dois: o **Kowalski** e o **Wolfram-Alpha**, respectivamente responsáveis por geração de relatórios e parse de texto dos termos mais citados.
+Nosso Data Warehouse é acessado por vários microserviços e falarei abaixo sobre dois: o **Kowalski** e o **Wolfram-Alpha**, respectivamente responsáveis por geração de relatórios e parse de texto dos termos mais citados.
 
 # Nossa stack
 
