@@ -185,3 +185,9 @@ Tivemos um longe desafio pela frente. Fizemos duas POCs e obtivemos indicadores 
 Hoje esta feature é muito utilizada em nossa plataforma e os indicadores continuam muito satisfatórios. Com base nesse microserviço, escrevemos outros com `golang` e pretendemos tornar uma stack default em nosso back-end.
 
 Se você possui algum case como este, fique a vontade para compartilhar conosco! Abraço e até o nosso próximo post.
+
+Me acompanhe em: [github.com/leonardorifeli](https://github.com/leonardorifeli) e [leonardo.rifeli.tech](https://leonardo.rifeli.tech)
+
+Acompanhe a reviewr no Facebook: [https://www.facebook.com/reviewrme](https://www.facebook.com/reviewrme)
+
+Acompanhe a reviewr no Linkedin: [https://www.linkedin.com/company/reviewr.me/](https://www.linkedin.com/company/reviewr.me/)
