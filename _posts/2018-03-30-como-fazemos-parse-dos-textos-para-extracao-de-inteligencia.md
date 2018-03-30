@@ -190,4 +190,4 @@ Me acompanhe em: [github.com/leonardorifeli](https://github.com/leonardorifeli) 
 
 Acompanhe a reviewr no Facebook: [facebook.com/reviewrme](https://www.facebook.com/reviewrme)
 
-Acompanhe a reviewr no Linkedin: [linkedin.com/company/reviewr.me/](https://www.linkedin.com/company/reviewr.me/)
+Acompanhe a reviewr no Linkedin: [linkedin.com/company/reviewr.me](https://www.linkedin.com/company/reviewr.me/)
