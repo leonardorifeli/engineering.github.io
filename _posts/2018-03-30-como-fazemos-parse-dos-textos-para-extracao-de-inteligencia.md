@@ -32,7 +32,7 @@ Para não termos problemas com as expectativas é importante deixarmos claro os 
 
 # Tá, mas o que significa parsear?
 
-![image](https://user-images.githubusercontent.com/6767689/38067620-ccc65b84-32e3-11e8-893b-8ce79053ad6c.png)a
+![image](https://user-images.githubusercontent.com/6767689/38067620-ccc65b84-32e3-11e8-893b-8ce79053ad6c.png)
 
 Fonte: [dicionarioinformal.com.br/parsear](http://www.dicionarioinformal.com.br/parsear/)
 
