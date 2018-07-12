@@ -11,11 +11,11 @@ Em programação de software, o termo **parse de texto** continua sombrio, princ
 
 Antes de começar:
 
+{: refdef: style="text-align: center;"}
 ![image](https://user-images.githubusercontent.com/6767689/38067896-c067a4aa-32e4-11e8-9529-858351724902.png)
+{: refdef}
 
 Aqui na Reviewr, prezamos muito pelo compartilhamento de conhecimento.
-
-Vamos lá?
 
 # Tópicos
 
@@ -32,7 +32,9 @@ Para não termos problemas com as expectativas é importante deixarmos claro os 
 
 # Tá, mas o que significa parsear?
 
+{: refdef: style="text-align: center;"}
 ![image](https://user-images.githubusercontent.com/6767689/38067620-ccc65b84-32e3-11e8-893b-8ce79053ad6c.png)
+{: refdef}
 
 Fonte: [dicionarioinformal.com.br/parsear](http://www.dicionarioinformal.com.br/parsear/)
 
@@ -42,17 +44,19 @@ Para melhor compreensão, é importante você ter conhecimento sobre o que fazem
 
 Em nossa plataforma temos uma *feature* chamada **termos mais citados**. 
 
+{: refdef: style="text-align: center;"}
 ![image](https://user-images.githubusercontent.com/6767689/38068105-b1e9d028-32e5-11e8-89aa-341b2aeee22f.png)
+{: refdef}
 
 Dada uma massa de reviews retornamos as palavras com maior número de ocorrências, neste caso, mais relevantes.
 
 Este foi um dos nossos grandes desafios. Salvar dados classificados, fazer parse de um grande volume de dados e entregar inteligência.
 
-Você pode obter mais informações sobre essa funcionalidade no post **[Como usar os termos mais citados](http://reviewr.me/blog/como-usar-termos-mais-citados/)** da nossa COO Cecília Brandão.
+Você pode obter mais informações sobre essa funcionalidade no post **[Como usar os termos mais citados](http://reviewr.me/blog/como-usar-termos-mais-citados/)** da nossa *COO Cecília Brandão*.
 
 # Nossa arquitetura
 
-Aqui na Reviewr, utlizamos a arquitetura de microserviços e seguimos (sempre que possível) os pontos abaixo:
+Utlizamos a arquitetura de microserviços e seguimos (sempre que possível) os pontos abaixo:
 
 - API First;
 - [12 factors](https://12factor.net/pt_br/);
@@ -65,7 +69,9 @@ Para uma melhor compreensão das nossas escolhas de arquitetura, vou isolar este
 
 A arquitetura da nossa plataforma é dividida em duas partes principais, uma delas é a de coleta de reviews. Nosso CTO (Marcelo Andrade) fala um pouco dos coletores neste post: [Princípios e estratégias de Web Scrapping](http://engineering.reviewr.tech/scrapping/2018/03/21/principios-e-estrategias-de-web-scrapping.html).
 
+{: refdef: style="text-align: center;"}
 ![image](https://user-images.githubusercontent.com/6767689/38068537-198df3ec-32e8-11e8-8be0-645effbc1a59.png)
+{: refdef}
 
 Nossos coletores extraem os reviews das plataformas integradas e em seguida insere em uma base `MongoDB`. Posteriormente, esses dados são agregados em nosso `Data Warehouse` (Amazon Redshift/Postgres).
 
@@ -79,9 +85,11 @@ Exemplificando: um relatório é a consolidação de várias métricas. O micros
 
 Para prosseguirmos, analisaremos a seguinte imagem (nossa arquitetura de dados):
 
+{: refdef: style="text-align: center;"}
 ![image](https://user-images.githubusercontent.com/6767689/38068754-3484ea06-32e9-11e8-8d10-d58ac97ebd58.png)
+{: refdef}
 
-Nosso Data Warehouse é acessado por vários microserviços e falarei abaixo sobre dois: o **Kowalski** e o **Wolfram-Alpha**, respectivamente responsáveis por geração de relatórios e parse de texto dos termos mais citados.
+Nosso Data Warehouse é acessado por vários microserviços e falarei abaixo sobre dois: ***Kowalski*** e ***Wolfram-Alpha***, respectivamente responsáveis por geração de relatórios e parse de texto dos termos mais citados.
 
 # Nossa stack
 
@@ -89,13 +97,13 @@ Para o cenário atual, nossa stack é dividida em:
 
 - Banco `NoSQL` (neste caso `MongoDB`) para os reviews em `raw-data `;
 - Banco `Postgres` ([Redshift](https://aws.amazon.com/pt/redshift/));
-- NodeJS (`Kowalski`) e Golang (`Wolfram-alpha`) microservice.
+- NodeJS (*`Kowalski`*) e Golang (*`Wolfram-alpha`*) microservice.
 
 # Nossos microserviços
 
-O **Kowalski**, microserviço feito com `NodeJS`, é responsável pela entrega dos relatórios e alguns indicadores.
+**Kowalski**: microserviço feito com `NodeJS`, é responsável pela entrega dos relatórios e indicadores.
 
-O **Wolfram-Alpha**, nosso primeiro microserviço em `golang`, é responsável por processar um volume **XY** de reviews para a extração, agregação e ordenação dos termos. Para isso, utilizamos um processo de **MapReduce** e o `golang` possui uma infinidade de recursos para processamento de dados de maneira paralela. Isso faz com que a perfomance da aplicação aumente drásticamente e foi o fator chave que nos fez escolher a linguagem para realizar essa tarefa.
+**Wolfram-Alpha**: nosso primeiro microserviço em `golang`, é responsável por processar volumes de reviews para a extração, agregação e ordenação dos termos. Para isso, utilizamos um processo de **MapReduce** e o `golang` possui uma infinidade de recursos para processamento de dados de maneira paralela. Isso faz com que a perfomance da aplicação aumente drásticamente e foi o fator chave que nos fez escolher a linguagem para realizar essa tarefa.
 
 # Como fazemos o parse
 
@@ -133,11 +141,15 @@ Neste tópico, trago alguns indicadores de performance atingidos no decorrer do 
 
 **Indicador sem cache, com parse de `~6k reviews`:**
 
+{: refdef: style="text-align: center;"}
 ![image](https://user-images.githubusercontent.com/6767689/38069427-9e3b2ea8-32ec-11e8-94bf-bcc73079c992.png)
+{: refdef}
 
 **Indicador com cache, com parse de `~6k reviews`:**
 
+{: refdef: style="text-align: center;"}
 ![image](https://user-images.githubusercontent.com/6767689/38069405-7babc47e-32ec-11e8-8f53-46f26bb92758.png)
+{: refdef}
 
 Exemplo de resultado de uma requisitação:
 
@@ -176,7 +188,9 @@ Exemplo de resultado de uma requisitação:
 }
 ```
 
+{: refdef: style="text-align: center;"}
 ![image](https://media1.tenor.com/images/41bdcebc51d47375cf5513194d0d6980/tenor.gif?itemid=4308764)
+{: refdef}
 
 # Conclusão
 
